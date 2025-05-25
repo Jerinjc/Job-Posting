@@ -9,7 +9,8 @@ from sklearn.cluster import AgglomerativeClustering
 import os
 import smtplib
 from email.mime.text import MIMEText
-
+import schedule
+import time
 # --------- User Preferences ---------
 user_preferences = {
     "jerin.ds24@duk.ac.in": ["python", "machine learning", "data science"]
@@ -128,3 +129,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    # Schedule daily run at 8:00 AM
+    schedule.every().day.at("08:00").do(main)
+
+    print("Scheduler started. Waiting for the scheduled time...")
+
+    while True:
+        schedule.run_pending()
+        time.sleep(30)
