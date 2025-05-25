@@ -112,7 +112,7 @@ def alert_users(df_new_jobs, user_prefs, from_email, email_password):
 def main():
     # Use your own Gmail credentials here or load from environment variables
     from_email = "jerin.ds24@duk.ac.in"
-    email_password = "efbf fnnx tvmc drlz"
+    email_password = "**** **** **** ****"
 
     # Scrape jobs (empty keyword for all jobs)
     df_jobs = scrape_karkidi_jobs(keyword="", pages=3)
@@ -129,7 +129,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+
     # Schedule daily run at 8:00 AM
     schedule.every().day.at("08:00").do(main)
 
